@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OT7</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="//cdn.ckeditor.com/4.16.2/basic/ckeditor.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+
+    <h1>Uusi postaus</h1>
+    <form method="POST" action="/tallenna">
+    <div class="form-group">
+        <label for="nimiinput">Nimimerkki ei pakollinen</label>
+        <input name="nimimerkki" class="form-control" id="nimiinput" placeholder="Nimimerkki">
+    </div>
+
+    <div class="form-group">
+        <input name="otsikko" class="form-control" id="otsikkoinput" placeholder="Otsikko">
+    </div>
+
+    <div class="form-group">
+        <textarea name="sisalto" placeholder="Sisältö"></textarea>
+        <script>
+            CKEDITOR.replace( 'sisalto' );
+        </script>
+    </div>
+
+    <input type="submit" style="margin-top:5px;" value="Lähetä" class="btn btn-secondary btn-lg">
+    </form>
+
+
+    </div>
+
+</body>
+</html>

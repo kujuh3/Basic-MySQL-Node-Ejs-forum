@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OT7</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    
+    <div class="container">
+    
+    <br>
+    <a href="/uusi/" style="width: 58%; margin: auto;" class="btn btn-lg btn-secondary btn-block">Aloita uusi keskustelu</a>
+
+    <% keskustelut.forEach((keskustelu) => { %>
+
+        <div id="content" > <a style="text-decoration: none;" href="/keskustelu/<%=keskustelu.id%>">
+            <div id="otsikko"><h2><%=keskustelu.otsikko%></h2>
+            <% vastaukset.forEach((vastaus) => { %>
+                <% if(vastaus.keskusteluid == keskustelu.id) { %>
+                <p><mark id="etusivu">Vastauksien määrä: <%=vastaus.count%></mark></p>
+            <% }}); %>
+            <p><mark id="etusivu">Keskustelun aloittaja: <%=keskustelu.kirjoittaja%></mark></p>
+            <% 
+            var MyDate = new Date(keskustelu.aikaleima);
+            var minutehours = [('0' + MyDate.getHours()).slice(-2), ('0' + MyDate.getMinutes()).slice(-2)].join(":");
+            var MyDateString;
+
+            MyDate.setDate(MyDate.getDate() + 20);
+            
+            MyDateString = ('0' + MyDate.getDate()).slice(-2) + '/'
+                        + ('0' + (MyDate.getMonth()+1)).slice(-2) + '/'
+                        + MyDate.getFullYear();
+            %>
+            <% let aika = new Date(keskustelu.aikaleima); %>
+            <p><mark id="etusivu">Keskustelun aloitusaika: <%=minutehours%> <%=MyDateString%></mark></p>
+            <p><mark id="etusivu">Viimeisin vastaus: <%=keskustelu.viimeisin%></mark></p></div>
+            </a>
+            <% }); %>
+    </div>
+    </div>
+
+</body>
+</html>
