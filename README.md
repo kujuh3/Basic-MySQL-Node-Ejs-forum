@@ -1,5 +1,5 @@
 # Forum
-Very basic web forum using Node and MySQL - Finnish
+Very basic web forum using Node, Ejs and MySQL - Finnish
 <br>
 <h4>Main page with forum posts sorted by last posted reply
   <li>Leaving nametag blank results in posting as anonymous
